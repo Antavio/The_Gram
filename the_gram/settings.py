@@ -27,7 +27,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
+UPLOADCARE = {
+    'pub_key': 'antaviokey',
+    'secret': 'antavioprivatekey',
+}
 # Application definition
 
 INSTALLED_APPS = [
@@ -40,6 +43,7 @@ INSTALLED_APPS = [
     'insta_app',
     'bootstrap4',
     'tinymce',
+    'pyuploadcare.dj',
 ]
 
 MIDDLEWARE = [

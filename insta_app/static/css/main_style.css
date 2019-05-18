@@ -21,3 +21,18 @@
    width: 50px;
    height: 50px;
  }
+ .sidebar{
+  width: 35%;
+  height: 25vh;
+  min-height: 300px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10%;
+ }
+ 
+ .content{
+  overflow: auto;
+  width: 100%;
+  height: 25vh;
+  min-height: 300px;
+ }

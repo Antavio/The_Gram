@@ -1,0 +1,67 @@
+{% load bootstrap4 %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block styles %}
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.0/css/mdb.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cookie&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/main_style.css' %}">
+    {% endblock %}
+
+</head>
+
+<body>
+
+    {% block content %} {%endblock%}
+
+
+    {% block scripts %}
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% bootstrap_javascript %}
+    {% endblock %}
+    <div class="container">
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="row">
+                <!-- Copyright -->
+                <div class="footer-copyright text-center py-3 insta_footer"> 
+                    <a href="">ABOUT US</a>
+                    <a href="">SUPPORT</a>
+                    <a href="">PRESS</a>
+                    <a href="">API</a>
+                    <a href="">JOBS</a>
+                    <a href="">PRIVACY</a>
+                    <a href="">TERMS</a>
+                    <a href="">DIRECTORY</a>
+                    <a href="">PROFILES</a>
+                    <a href="">HASHTAGS</a>
+                    <a href="">LANGUAGE</a>
+                    <span style="margin-left:30px;color: #999;"> <strong> © 2019 THE_INSTA_GRAM </strong></span>
+
+                </div>
+                <!-- Copyright -->
+            </div>
+        </footer>
+        <!-- Footer -->
+    </div>
+</body>
+
+</html>

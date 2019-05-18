@@ -1,4 +1,5 @@
 from django.db import models
+import datetime as dt
 from django.contrib.auth.models import User
 from tinymce.models import HTMLField
 
@@ -9,6 +10,8 @@ class Image(models.Model):
     img_title = models.CharField(max_length=60)
     img_caption = HTMLField(blank=True)
     date_posted = models.DateTimeField(auto_now_add=True)
+    insta_user = models.ForeignKey(User,on_delete=models.CASCADE)
+    
 
     def __str__(self):
         return self.img_title

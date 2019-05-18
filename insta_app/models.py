@@ -15,3 +15,16 @@ class Image(models.Model):
 
     class Meta:
         ordering = ['-id']
+
+    def save_image(self):
+        self.save()
+
+    @classmethod
+    def get_single_image(cls,id):
+        single_image = Image.objects.get(pk=id)
+        return single_image
+
+    @classmethod
+    def fetch_all_images(cls):
+        all_images = Image.objects.all()
+        return all_images

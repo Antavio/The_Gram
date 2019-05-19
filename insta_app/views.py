@@ -23,3 +23,6 @@ def new_image(request):
         form = ImageForm()
     return render(request,"new_image.html",{"form":form})
 
+# @login_required(login_url='/accounts/login/')
+def profile(request):
+    return render (request,"insta_app/profile.html")

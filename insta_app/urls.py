@@ -7,6 +7,7 @@ urlpatterns=[
     url('^$',views.home,name='home'),
     url(r'^new/insta_post$', views.new_image, name='new_image'),
     url(r'^profile/(?P<username>[-_\w.]+)/$',views.profile,name='profile'),
+    url(r'^profile/(?P<username>[-_\w.]+)/edit/$',views.edit_profile_info,name='edit_profile')
 ]
 
 if settings.DEBUG:

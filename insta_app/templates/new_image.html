@@ -12,15 +12,21 @@
     {% block styles %}
     {% bootstrap_css %}
     <link rel="stylesheet" href="{% static 'css/gram.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
     {% endblock %}
 </head>
 
 <body>
-    <form action="{% url 'new_image' %}" method="post" enctype="multipart/form-data">
-        {%csrf_token%}
-        {% bootstrap_form form%}
-        <input type="submit" class="btn btn-success btn-lg" value="Upload">
-    </form>
+    <div class="container">
+        <h3 class="text-center" style="margin-top:10px;">Whats on your mind?</h3>
+        <div class="card" style="padding:30px;">
+            <form action="{% url 'new_image' %}" method="post" enctype="multipart/form-data">
+                {%csrf_token%}
+                {% bootstrap_form form%}
+                <input type="submit" class="btn btn-success btn-block" value="Upload">
+            </form>
+        </div>
+    </div>
     {% block scripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     {% bootstrap_javascript %} {% endblock %}

@@ -34,7 +34,11 @@
                     <!-- Title -->
                     <h4 class="card-title">{{single_image.img_title}}</h4>
                     <!-- Text -->
-                    <p class="card-text">{{single_image.img_caption}}</p>
+                    <p class="card-text">
+                        {% autoescape on %}
+                        {{single_image.img_caption | safe}}
+                        {% endautoescape %}
+                    </p>
                     <p class="card-text">{{single_image.date_posted}}</p>
 
                 </div>
@@ -63,7 +67,11 @@
                     </div>
                     <div style="margin-left:30px;">
                         <p><strong>Title:</strong>{{single_image.img_title}} </p>
-                        <p><strong>Caption:</strong>{{single_image.img_caption}} </p>
+                        <p><strong>Caption:</strong>
+                            {% autoescape on %}
+                            {{single_image.img_caption | safe}}
+                            {% endautoescape %}
+                        </p>
                         <p><strong>Posted on:</strong>{{single_image.date_posted}} </p>
                     </div>
                     <!--Footer-->

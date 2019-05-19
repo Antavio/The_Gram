@@ -9,7 +9,8 @@
             <div class="card">
                 <div class="card-header">
                     <img src="{{single_image.img_path.url}}" alt="{{single_image.img_title}}" class="image_top">
-                    {{single_image.img_title}}
+                    {{profile.user_profile.username}}
+
                 </div>
                 <!-- Card image -->
                 <div class="view overlay">
@@ -51,21 +52,21 @@
         </div>
         <!--Modal: modalYT-->
         <div class="modal fade" id="{{single_image.id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-            aria-hidden="true" style="margin-top:100px;">
+            aria-hidden="true" style="margin-top:5px;">
             <div class="modal-dialog modal-lg" role="document">
 
                 <!--Content-->
+                <div class="modal-content">
 
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div class="embed-responsive embed-responsive-16by9">
+                            <img class="embed-responsive-item" src="{{single_image.img_path.url}}"
+                                alt="{{single_image.img_title}}" style="margin:10px;" allowfullscreen>
+                        </div>
 
-                <!--Body-->
-                <div class="modal-body">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <img class="embed-responsive-item" src="{{single_image.img_path.url}}"
-                            alt="{{single_image.img_title}}" style="margin:10px;" allowfullscreen>
                     </div>
 
-                </div>
-                <!-- <div class="modal-content">
                     <div style="margin-left:30px;">
                         <p><strong>Title:</strong>{{single_image.img_title}} </p>
                         <p><strong>Caption:</strong>{% autoescape on %} {{single_image.img_caption | safe}}
@@ -73,14 +74,14 @@
                         </p>
                         <p><strong>Posted on:</strong>{{single_image.date_posted}} </p>
                     </div>
-                    
+
                     <div class="modal-footer justify-content-center flex-column flex-md-row">
                         <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4"
                             data-dismiss="modal">Close</button>
                     </div>
 
-                </div> -->
-                
+                </div>
+
 
             </div>
         </div>

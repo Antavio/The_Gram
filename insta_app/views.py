@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
 from .models import Image,Profile
-from .forms import ImageForm
+from .forms import ImageForm,ProfileEditorForm
 from django.contrib.auth.models import User
 
 # Create your views here.
@@ -31,3 +31,18 @@ def profile(request,username):
     all_images = Image.objects.filter(insta_user=profile.user_profile).all()
 
     return render (request,"insta_app/profile.html",{"profile":profile,"all_images":all_images})
+
+@login_required
+def edit_profile_info(request,username):
+    logged_user = User.objects.get(username=username)
+    if request.method == 'POST':
+        form = ProfileEditorForm(request.POST,request.FILES)
+        if form.is_valid():
+            edit_profile = form.save(commit=False)
+            edit_profile.user_profile = logged_user
+            edit_profile.save()
+            return redirect('profile')
+    else:
+        form = ProfileEditorForm()
+
+    return render(request,'profile/edit_profile.html',{'form':form})

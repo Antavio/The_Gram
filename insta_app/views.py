@@ -1,7 +1,8 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from .models import Image
+from .models import Image,Profile
 from .forms import ImageForm
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -24,5 +25,9 @@ def new_image(request):
     return render(request,"new_image.html",{"form":form})
 
 # @login_required(login_url='/accounts/login/')
-def profile(request):
-    return render (request,"insta_app/profile.html")
+def profile(request,username):
+    user = User.objects.get(username=username)
+    profile = Profile.objects.filter(user_profile=user).first()
+    all_images = Image.objects.filter(insta_user=profile.user_profile).all()
+
+    return render (request,"insta_app/profile.html",{"profile":profile,"all_images":all_images})

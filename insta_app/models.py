@@ -23,6 +23,11 @@ class Profile(models.Model):
         profile = Profile.objects.get(user_profile=id)
         return profile
 
+    @classmethod
+    def filter_profile_by_id(cls,id):
+        profile = Profile.objects.filter(user_profile=id).first()
+        return profile
+
 class Image(models.Model):
     img_path = models.ImageField(upload_to = 'posts/',default="")
     img_title = models.CharField(max_length=60)

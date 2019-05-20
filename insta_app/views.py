@@ -5,6 +5,8 @@ from .forms import ImageForm,ProfileEditorForm
 from django.contrib.auth.models import User
 
 # Create your views here.
+def registration(request):
+    return render(request,'registration/first_page.html')
 
 def home(request):
     all_insta_images = Image.fetch_all_images()
@@ -26,22 +28,22 @@ def new_image(request):
 
 @login_required(login_url='/accounts/login/')
 def profile(request,username):
-    user = User.objects.get(username=username)
-    profile = Profile.objects.filter(user_profile=user).first()
+    users =request.user.id
+    profile = Profile.objects.filter(user_profile=users).first()
     all_images = Image.objects.filter(insta_user=profile.user_profile).all()
 
     return render (request,"insta_app/profile.html",{"profile":profile,"all_images":all_images})
 
 @login_required
 def edit_profile_info(request,username):
-    logged_user = User.objects.get(username=username)
+    logged_user =request.user.id
     if request.method == 'POST':
         form = ProfileEditorForm(request.POST,request.FILES)
         if form.is_valid():
             edit_profile = form.save(commit=False)
             edit_profile.user_profile = logged_user
             edit_profile.save()
-            return redirect('profile')
+            return redirect('home')
     else:
         form = ProfileEditorForm()
 

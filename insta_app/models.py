@@ -8,7 +8,7 @@ from tinymce.models import HTMLField
 class Profile(models.Model):
     profile_photo = models.ImageField(upload_to='profile_pictures/',default="")
     user_bio = models.CharField(max_length=200,blank=True)
-    user_profile = models.OneToOneField(User,on_delete=models.CASCADE)
+    user_profile = models.IntegerField(default=0)
 
     def save_profile(self):
         self.save()

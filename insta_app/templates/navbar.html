@@ -41,7 +41,14 @@
         <div class="icons">
             <a href=""><i class="far fa-compass" style="font-size:30px;margin-right:50px;color: black"></i></a>
             <a href=""><i class="far fa-heart" style="font-size:30px;margin-right:50px;color: black"></i></a>
-            <a href="{% url 'profile' user.username%}"><i class="far fa-user" style="font-size:30px;margin-right:50px;color: black"></i></a>
+            <a href="{% url 'profile' user.username%}"><i class="far fa-user"
+                    style="font-size:30px;margin-right:50px;color: black"></i></a>
+            {% if user.is_authenticated %}
+            
+            <a href="/logout"><i class="fas fa-sign-out-alt" style="font-size:30px;"></i>Logout</a>
+            {% else %}
+            <span></span>
+            {% endif %}
         </div>
     </div>
     <!-- Collapsible content -->

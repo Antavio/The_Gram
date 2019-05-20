@@ -13,6 +13,9 @@ class Profile(models.Model):
     def save_profile(self):
         self.save()
 
+    def delete_profile(self):
+        self.delete()
+
     @classmethod
     def search_profile(cls,name):
         profile = Profile.objects.filter(user_profile__username__icontains = name)
@@ -44,6 +47,9 @@ class Image(models.Model):
 
     def save_image(self):
         self.save()
+
+    def delete_image(self):
+        self.delete()
 
     @classmethod
     def get_single_image(cls,id):

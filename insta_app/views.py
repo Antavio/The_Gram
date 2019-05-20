@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from .models import Image,Profile
 from .forms import ImageForm,ProfileEditorForm
 from django.contrib.auth.models import User
+from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
 def registration(request):
@@ -29,8 +30,14 @@ def new_image(request):
 @login_required(login_url='/accounts/login/')
 def profile(request,username):
     users =request.user.id
-    profile = Profile.objects.filter(user_profile=users).first()
-    all_images = Image.objects.filter(insta_user=profile.user_profile).all()
+    
+    try:
+        profile = Profile.objects.filter(user_profile=users).first()
+        all_images = Image.objects.filter(insta_user_id=request.user.id).all()
+
+    except ObjectDoesNotExist:
+
+        return redirect('new_image')
 
     return render (request,"insta_app/profile.html",{"profile":profile,"all_images":all_images})
 
